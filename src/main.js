@@ -176,8 +176,35 @@ function download(blob, name) {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
+function initializeFullscreen() {
+  const workspace = element('workspace');
+  const button = element('fullscreen');
+  const supported = !!(document.fullscreenEnabled && workspace.requestFullscreen);
+  button.disabled = !supported;
+
+  const update = () => {
+    const active = document.fullscreenElement === workspace;
+    button.textContent = active ? 'Exit fullscreen' : 'Fullscreen';
+    button.setAttribute('aria-pressed', String(active));
+    button.title = !supported ? 'Fullscreen is unavailable in this browser or embedded view.'
+      : active ? 'Exit fullscreen (Esc)' : 'View the scene fullscreen';
+  };
+  document.addEventListener('fullscreenchange', update);
+  button.addEventListener('click', async () => {
+    try {
+      if (document.fullscreenElement === workspace) await document.exitFullscreen();
+      else await workspace.requestFullscreen();
+    } catch (error) {
+      setStatus(`Could not change fullscreen mode: ${error.message}`, true);
+    }
+    update();
+  });
+  update();
+}
+
 async function initialize() {
   initializeAccordions();
+  initializeFullscreen();
   for (const family of FAMILIES) element('family').add(new Option(family.label, family.id));
   populateAlgorithms('fbm');
   element('family').addEventListener('change', () => { populateAlgorithms(); requestGeneration(); });

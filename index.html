@@ -80,7 +80,10 @@
         <label>View <select id="view-mode"><option value="terrain">3D · height colors</option><option value="neutral">3D · neutral</option><option value="grayscale">3D · grayscale</option><option value="heightmap">2D · heightmap</option><option value="difference">3D · erosion difference</option></select></label>
         <label class="checkbox"><input id="wireframe" type="checkbox"> Wireframe</label>
         <label class="checkbox"><input id="show-base" type="checkbox"> Show base</label>
-        <button id="frame-view" type="button">Frame terrain</button>
+        <div class="viewport-actions">
+          <button id="frame-view" type="button">Frame terrain</button>
+          <button id="fullscreen" type="button" aria-controls="workspace" aria-pressed="false">Fullscreen</button>
+        </div>
       </div>
       <div id="viewport">
         <div id="map-view" hidden><canvas id="heightmap-canvas" aria-label="Grayscale heightmap"></canvas></div>

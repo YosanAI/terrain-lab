@@ -39,6 +39,8 @@ Click a hydraulic-droplet, hydraulic-grid, or thermal erosion button to apply it
 
 **Show base** is a nondestructive comparison. The 3D viewport offers height colors, neutral shading, grayscale, and signed change from base, plus wireframe and OrbitControls. A 2D grayscale view, height statistics, operation diagnostics, JSON height export, and PNG inspection export are also available. The base color range remains fixed during erosion so automatic recoloring cannot disguise changes.
 
+Click **Fullscreen** beside **Frame terrain** to fill the screen with the scene and its view controls. Click **Exit fullscreen** or press **Esc** to return. Fullscreen preserves the current terrain and camera view, and works in both 3D and 2D modes when the browser supports fullscreen.
+
 For a first comparison, generate ridged terrain, apply thermal erosion, inspect the signed-change view, undo, then try droplets instead. Start at 128 segments for very large iteration counts. Cancel stops the worker without committing a partial result.
 
 ## Implemented algorithms
