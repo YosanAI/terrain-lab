@@ -2,6 +2,8 @@
 
 A vanilla JavaScript / Three.js / Vite engineering demo for generating heightfields, applying erosion, and comparing the results. No UI framework, terrain library, noise library, or physics library is used. Algorithms are implemented in the source and run in a Web Worker.
 
+createdBy: [RessurectedGenius](mailto:bornagaingenius2@gmail.com)
+
 ## Quick start
 
 Use Node.js **20.19+ in the 20.x series, or 22.12+** and npm.
