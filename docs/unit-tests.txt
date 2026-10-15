@@ -1,0 +1,278 @@
+
+> procedural-terrain-laboratory@1.1.0 test
+> node --test tests/*.test.js
+
+TAP version 13
+# Subtest: perlin: deterministic, finite, non-flat, and seed-sensitive
+ok 1 - perlin: deterministic, finite, non-flat, and seed-sensitive
+  ---
+  duration_ms: 13.546099
+  type: 'test'
+  ...
+# Subtest: simplex: deterministic, finite, non-flat, and seed-sensitive
+ok 2 - simplex: deterministic, finite, non-flat, and seed-sensitive
+  ---
+  duration_ms: 7.406622
+  type: 'test'
+  ...
+# Subtest: fbm: deterministic, finite, non-flat, and seed-sensitive
+ok 3 - fbm: deterministic, finite, non-flat, and seed-sensitive
+  ---
+  duration_ms: 13.088803
+  type: 'test'
+  ...
+# Subtest: ridged: deterministic, finite, non-flat, and seed-sensitive
+ok 4 - ridged: deterministic, finite, non-flat, and seed-sensitive
+  ---
+  duration_ms: 18.191373
+  type: 'test'
+  ...
+# Subtest: warp: deterministic, finite, non-flat, and seed-sensitive
+ok 5 - warp: deterministic, finite, non-flat, and seed-sensitive
+  ---
+  duration_ms: 19.881695
+  type: 'test'
+  ...
+# Subtest: diamondSquare: deterministic, finite, non-flat, and seed-sensitive
+ok 6 - diamondSquare: deterministic, finite, non-flat, and seed-sensitive
+  ---
+  duration_ms: 1.787339
+  type: 'test'
+  ...
+# Subtest: voronoi: deterministic, finite, non-flat, and seed-sensitive
+ok 7 - voronoi: deterministic, finite, non-flat, and seed-sensitive
+  ---
+  duration_ms: 14.468287
+  type: 'test'
+  ...
+# Subtest: worley: deterministic, finite, non-flat, and seed-sensitive
+ok 8 - worley: deterministic, finite, non-flat, and seed-sensitive
+  ---
+  duration_ms: 4.792967
+  type: 'test'
+  ...
+# Subtest: fault: deterministic, finite, non-flat, and seed-sensitive
+ok 9 - fault: deterministic, finite, non-flat, and seed-sensitive
+  ---
+  duration_ms: 42.228282
+  type: 'test'
+  ...
+# Subtest: tectonic: deterministic, finite, non-flat, and seed-sensitive
+ok 10 - tectonic: deterministic, finite, non-flat, and seed-sensitive
+  ---
+  duration_ms: 18.874923
+  type: 'test'
+  ...
+# Subtest: All generator families actually produce distinct arrays
+ok 11 - All generator families actually produce distinct arrays
+  ---
+  duration_ms: 18.555218
+  type: 'test'
+  ...
+# Subtest: Perlin grid vertices vanish; simplex uses a distinct triangular lattice
+ok 12 - Perlin grid vertices vanish; simplex uses a distinct triangular lattice
+  ---
+  duration_ms: 0.328077
+  type: 'test'
+  ...
+# Subtest: One-octave fBm equals its single-octave gradient source
+ok 13 - One-octave fBm equals its single-octave gradient source
+  ---
+  duration_ms: 1.622845
+  type: 'test'
+  ...
+# Subtest: Zero coordinate warping exactly restores the main terrain
+ok 14 - Zero coordinate warping exactly restores the main terrain
+  ---
+  duration_ms: 17.524761
+  type: 'test'
+  ...
+# Subtest: Amplitude is an actual multiplier, without per-map normalization
+ok 15 - Amplitude is an actual multiplier, without per-map normalization
+  ---
+  duration_ms: 5.394209
+  type: 'test'
+  ...
+# Subtest: Diamond-square rejects incompatible dimensions and respects zero displacement
+ok 16 - Diamond-square rejects incompatible dimensions and respects zero displacement
+  ---
+  duration_ms: 1.663068
+  type: 'test'
+  ...
+# Subtest: k-d tree nearest-two results match brute-force distances
+ok 17 - k-d tree nearest-two results match brute-force distances
+  ---
+  duration_ms: 5.96427
+  type: 'test'
+  ...
+# Subtest: Worley F2 >= F1 and F2−F1 is genuinely their difference
+ok 18 - Worley F2 >= F1 and F2−F1 is genuinely their difference
+  ---
+  duration_ms: 6.724814
+  type: 'test'
+  ...
+# Subtest: Voronoi submodes differ and zero blend restores hard cells
+ok 19 - Voronoi submodes differ and zero blend restores hard cells
+  ---
+  duration_ms: 13.712756
+  type: 'test'
+  ...
+# Subtest: Voronoi plate edges are actual shared bisectors clipped to the domain
+ok 20 - Voronoi plate edges are actual shared bisectors clipped to the domain
+  ---
+  duration_ms: 0.168948
+  type: 'test'
+  ...
+# Subtest: No plate motion produces no tectonic uplift; compression and divergence are signed
+ok 21 - No plate motion produces no tectonic uplift; compression and divergence are signed
+  ---
+  duration_ms: 10.655357
+  type: 'test'
+  ...
+# Subtest: Bilinear height and derivatives reproduce a tilted plane, including edges
+ok 22 - Bilinear height and derivatives reproduce a tilted plane, including edges
+  ---
+  duration_ms: 0.281406
+  type: 'test'
+  ...
+# Subtest: Bilinear deposition conserves its amount at corners and interior positions
+ok 23 - Bilinear deposition conserves its amount at corners and interior positions
+  ---
+  duration_ms: 0.317821
+  type: 'test'
+  ...
+# Subtest: droplet: modifies terrain, remains finite, and is deterministic
+ok 24 - droplet: modifies terrain, remains finite, and is deterministic
+  ---
+  duration_ms: 28.97441
+  type: 'test'
+  ...
+# Subtest: grid: modifies terrain, remains finite, and is deterministic
+ok 25 - grid: modifies terrain, remains finite, and is deterministic
+  ---
+  duration_ms: 55.246116
+  type: 'test'
+  ...
+# Subtest: thermal: modifies terrain, remains finite, and is deterministic
+ok 26 - thermal: modifies terrain, remains finite, and is deterministic
+  ---
+  duration_ms: 21.245975
+  type: 'test'
+  ...
+# Subtest: Droplet erosion conserves terrain + exported sediment
+ok 27 - Droplet erosion conserves terrain + exported sediment
+  ---
+  duration_ms: 89.655713
+  type: 'test'
+  ...
+# Subtest: Grid water and sediment stay nonnegative and conserve their balances
+ok 28 - Grid water and sediment stay nonnegative and conserve their balances
+  ---
+  duration_ms: 23.966514
+  type: 'test'
+  ...
+# Subtest: Zero-rainfall grid erosion and zero erosion-rate droplets do not alter terrain
+ok 29 - Zero-rainfall grid erosion and zero erosion-rate droplets do not alter terrain
+  ---
+  duration_ms: 10.524878
+  type: 'test'
+  ...
+# Subtest: Thermal redistribution conserves material and reduces variance
+ok 30 - Thermal redistribution conserves material and reduces variance
+  ---
+  duration_ms: 2.383191
+  type: 'test'
+  ...
+# Subtest: Thermal angle uses horizontal spacing, not raw height difference
+ok 31 - Thermal angle uses horizontal spacing, not raw height difference
+  ---
+  duration_ms: 0.370911
+  type: 'test'
+  ...
+# Subtest: Thermal delta-buffer result is symmetric under traversal reversal
+ok 32 - Thermal delta-buffer result is symmetric under traversal reversal
+  ---
+  duration_ms: 7.890427
+  type: 'test'
+  ...
+# Subtest: Invalid values fail clearly rather than producing NaN terrain
+ok 33 - Invalid values fail clearly rather than producing NaN terrain
+  ---
+  duration_ms: 1.90347
+  type: 'test'
+  ...
+# Subtest: State transitions: base immutability, cumulative erosion, exact undo and reset
+ok 34 - State transitions: base immutability, cumulative erosion, exact undo and reset
+  ---
+  duration_ms: 12.853565
+  type: 'test'
+  ...
+# Subtest: Generating a fresh base clears history, with separate storage
+ok 35 - Generating a fresh base clears history, with separate storage
+  ---
+  duration_ms: 3.178371
+  type: 'test'
+  ...
+# Subtest: Heightmap metadata rejects inconsistent spacing and malformed extents
+ok 36 - Heightmap metadata rejects inconsistent spacing and malformed extents
+  ---
+  duration_ms: 2.309062
+  type: 'test'
+  ...
+# Subtest: Live generation coalesces a burst of slider edits into the latest recipe
+ok 37 - Live generation coalesces a burst of slider edits into the latest recipe
+  ---
+  duration_ms: 23.942965
+  type: 'test'
+  ...
+# Subtest: New live request cancels running generation and ignores its late progress/result
+ok 38 - New live request cancels running generation and ignores its late progress/result
+  ---
+  duration_ms: 3.475724
+  type: 'test'
+  ...
+# Subtest: A completed-but-not-yet-committed old Promise cannot replace a newer request
+ok 39 - A completed-but-not-yet-committed old Promise cannot replace a newer request
+  ---
+  duration_ms: 4.823229
+  type: 'test'
+  ...
+# Subtest: Generate starts immediately and supersedes a queued live edit
+ok 40 - Generate starts immediately and supersedes a queued live edit
+  ---
+  duration_ms: 21.301853
+  type: 'test'
+  ...
+# Subtest: Cancel during debounce prevents the worker job entirely
+ok 41 - Cancel during debounce prevents the worker job entirely
+  ---
+  duration_ms: 19.910129
+  type: 'test'
+  ...
+# Subtest: Cancel during computation leaves results untouched and permits a later generation
+ok 42 - Cancel during computation leaves results untouched and permits a later generation
+  ---
+  duration_ms: 2.693589
+  type: 'test'
+  ...
+# Subtest: A worker error is reported, clears busy state, and does not commit a result
+ok 43 - A worker error is reported, clears busy state, and does not commit a result
+  ---
+  duration_ms: 1.486704
+  type: 'test'
+  ...
+# Subtest: Fresh generation seeds are text, distinct, and within the editable seed limit
+ok 44 - Fresh generation seeds are text, distinct, and within the editable seed limit
+  ---
+  duration_ms: 5.448103
+  type: 'test'
+  ...
+1..44
+# tests 44
+# suites 0
+# pass 44
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 634.119901

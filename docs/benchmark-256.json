@@ -1,0 +1,168 @@
+{
+  "runtime": "v22.16.0",
+  "platform": "linux",
+  "architecture": "x64",
+  "segments": 256,
+  "note": "One run per algorithm with shipped defaults; includes allocation; no GPU or UI timings.",
+  "results": [
+    {
+      "stage": "generation",
+      "algorithm": "perlin",
+      "elapsedMs": 25.12,
+      "samples": 66049,
+      "minimum": -52.464630126953125,
+      "maximum": 45.05772018432617,
+      "mean": -4.394295610347398,
+      "sum": -290238.8307678353,
+      "rmsChange": 0
+    },
+    {
+      "stage": "generation",
+      "algorithm": "simplex",
+      "elapsedMs": 26.63,
+      "samples": 66049,
+      "minimum": -56.127052307128906,
+      "maximum": 56.16878890991211,
+      "mean": 0.5500373412792957,
+      "sum": 36329.4163541562,
+      "rmsChange": 0
+    },
+    {
+      "stage": "generation",
+      "algorithm": "fbm",
+      "elapsedMs": 109.3,
+      "samples": 66049,
+      "minimum": -46.70925521850586,
+      "maximum": 46.0879020690918,
+      "mean": 0.31043879438115785,
+      "sum": 20504.171930081095,
+      "rmsChange": 0
+    },
+    {
+      "stage": "generation",
+      "algorithm": "ridged",
+      "elapsedMs": 125.21,
+      "samples": 66049,
+      "minimum": 0.17308224737644196,
+      "maximum": 58.54570007324219,
+      "mean": 20.637598832912325,
+      "sum": 1363092.765315026,
+      "rmsChange": 0
+    },
+    {
+      "stage": "generation",
+      "algorithm": "warp",
+      "elapsedMs": 228.44,
+      "samples": 66049,
+      "minimum": -47.40061950683594,
+      "maximum": 46.143463134765625,
+      "mean": 0.03813629505572855,
+      "sum": 2518.864152135815,
+      "rmsChange": 0
+    },
+    {
+      "stage": "generation",
+      "algorithm": "diamondSquare",
+      "elapsedMs": 11.26,
+      "samples": 66049,
+      "minimum": -40.88132858276367,
+      "maximum": 24.832414627075195,
+      "mean": -6.0040002364477125,
+      "sum": -396558.211617135,
+      "rmsChange": 0
+    },
+    {
+      "stage": "generation",
+      "algorithm": "voronoi",
+      "elapsedMs": 88.6,
+      "samples": 66049,
+      "minimum": -54.23320770263672,
+      "maximum": 59.91038131713867,
+      "mean": -2.1782925446119443,
+      "sum": -143874.0442790743,
+      "rmsChange": 0
+    },
+    {
+      "stage": "generation",
+      "algorithm": "worley",
+      "elapsedMs": 34.65,
+      "samples": 66049,
+      "minimum": 4.61147865280509e-05,
+      "maximum": 58.664249420166016,
+      "mean": 12.922680868150197,
+      "sum": 853530.1486604523,
+      "rmsChange": 0
+    },
+    {
+      "stage": "generation",
+      "algorithm": "fault",
+      "elapsedMs": 208.6,
+      "samples": 66049,
+      "minimum": -46.01917266845703,
+      "maximum": 21.701061248779297,
+      "mean": -9.97786027610478,
+      "sum": -659027.6933764446,
+      "rmsChange": 0
+    },
+    {
+      "stage": "generation",
+      "algorithm": "tectonic",
+      "elapsedMs": 50.68,
+      "samples": 66049,
+      "minimum": -30.19219207763672,
+      "maximum": 80.04839324951172,
+      "mean": 5.092359834887919,
+      "sum": 336345.27473451215,
+      "rmsChange": 0
+    },
+    {
+      "stage": "erosion",
+      "algorithm": "droplet",
+      "elapsedMs": 400.65,
+      "samples": 66049,
+      "rmsChange": 5.668311875940093,
+      "diagnostics": {
+        "totalEroded": 317666.9924077121,
+        "totalDeposited": 287195.6422235213,
+        "exportedSediment": 30471.350184194762,
+        "totalSteps": 911550,
+        "massError": 0.00012125655121053569,
+        "boundary": "Open; sediment carried out of the map is recorded as export."
+      }
+    },
+    {
+      "stage": "erosion",
+      "algorithm": "grid",
+      "elapsedMs": 1497.38,
+      "samples": 66049,
+      "rmsChange": 8.403342885464484,
+      "diagnostics": {
+        "totalEroded": 397417.5350541993,
+        "totalDeposited": 397417.5350541608,
+        "remainingWater": 92402.87125654638,
+        "evaporatedWater": 204817.62874346288,
+        "minimumWater": 0,
+        "minimumSediment": 0,
+        "suspendedBeforeSettling": 97844.76609094435,
+        "conductance": 0.2,
+        "requestedConductance": 0.2,
+        "conductanceLimited": false,
+        "waterBalanceError": 9.255018085241318e-09,
+        "massError": -0.00013048190157860518,
+        "boundary": "Closed; all suspended sediment settles at the end of each operation."
+      }
+    },
+    {
+      "stage": "erosion",
+      "algorithm": "thermal",
+      "elapsedMs": 543.27,
+      "samples": 66049,
+      "rmsChange": 3.8618060331924373,
+      "diagnostics": {
+        "totalTransferred": 790691.1359516392,
+        "massError": 4.8591813538223505e-05,
+        "boundary": "Closed; pairwise redistribution conserves material."
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "procedural-terrain-laboratory",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A vanilla JavaScript laboratory for procedural heightfields and erosion.",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test tests/*.test.js",
+    "build:single": "node scripts/build-single.mjs",
+    "check": "npm test && npm run build && npm run build:single",
+    "build:portable": "node scripts/build-portable.mjs",
+    "docs:parameters": "node scripts/write-parameter-reference.mjs",
+    "benchmark": "node scripts/benchmark.mjs"
+  },
+  "dependencies": {
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "vite": "7.1.7",
+    "esbuild": "0.25.10"
+  }
+}

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f7f7">
+  <title>Procedural Terrain Laboratory</title>
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <div id="app">
+    <aside id="controls">
+      <header>
+        <h1>Terrain Laboratory</h1>
+        <p class="subtitle">Procedural generation &amp; erosion</p>
+      </header>
+      <section class="lab-section" aria-labelledby="base-heading">
+        <h2 id="base-heading" class="section-heading">
+          <button id="base-settings-toggle" type="button" class="section-toggle" data-settings-toggle aria-expanded="false" aria-controls="base-settings">
+            <span>Generate terrain</span><span class="settings-affordance"><span class="settings-label">More settings</span><span class="chevron" aria-hidden="true">⌄</span></span>
+          </button>
+        </h2>
+        <fieldset id="base-controls">
+          <div class="quick-controls">
+            <label class="field">Category<select id="family"></select></label>
+            <label class="field">Technique<select id="algorithm"></select></label>
+            <button id="generate" class="full primary" type="button" title="Generate terrain with a new random seed on every click">Generate terrain</button>
+          </div>
+          <div id="base-settings" class="settings-region" hidden>
+            <p class="settings-intro"><strong>Live preview</strong> · Changes update the terrain automatically using the current seed. Base changes replace any applied erosion.</p>
+            <p id="algorithm-description" class="explanation"></p>
+            <label class="field">Random seed<input id="base-seed" type="text" maxlength="128" value="terrain-42" spellcheck="false" autocomplete="off" aria-describedby="seed-hint"></label>
+            <p id="seed-hint" class="hint">Generate chooses a new seed. Edit or paste a seed here to reproduce a terrain.</p>
+            <div id="base-parameters"></div>
+            <div class="settings-divider">Terrain dimensions</div>
+            <div class="parameter">
+              <label for="terrain-size-slider">Terrain size (world units)</label>
+              <div class="range-pair">
+                <input id="terrain-size-slider" type="range" min="64" max="2048" step="1" value="256">
+                <input id="terrain-size" type="number" min="64" max="2048" step="1" value="256" required aria-label="Terrain size exact value">
+              </div>
+            </div>
+            <label class="field">Mesh resolution<select id="segments"><option value="128">128 × 128 · faster</option><option value="256" selected>256 × 256 · balanced</option><option value="512">512 × 512 · detailed</option></select></label>
+          </div>
+        </fieldset>
+      </section>
+      <section class="lab-section" aria-labelledby="erosion-heading">
+        <h2 id="erosion-heading" class="section-heading">
+          <button id="erosion-settings-toggle" type="button" class="section-toggle" data-settings-toggle aria-expanded="false" aria-controls="erosion-settings">
+            <span>Apply erosion</span><span class="settings-affordance"><span class="settings-label">More settings</span><span class="chevron" aria-hidden="true">⌄</span></span>
+          </button>
+        </h2>
+        <fieldset id="erosion-controls">
+          <div id="erosion-actions" class="quick-controls erosion-actions"></div>
+          <div id="erosion-settings" class="settings-region" hidden>
+            <p class="settings-intro">Choose an erosion type below to adjust it. Settings take effect only when you apply erosion; repeated applications build on the current terrain.</p>
+            <div id="erosion-panels"></div>
+          </div>
+        </fieldset>
+        <div id="erosion-history" class="erosion-history" hidden>
+          <div class="button-row state-actions">
+            <button id="undo" type="button" disabled>Undo last erosion</button>
+            <button id="reset" type="button" disabled>Reset to base</button>
+          </div>
+          <p id="history-status" class="hint"></p>
+        </div>
+      </section>
+      <details id="notes-panel">
+        <summary>Model notes &amp; operation log</summary>
+        <p class="hint">Elevation and spacing use the same world units. No automatic height normalization is applied. Tectonic uplift and hydraulic flow are deliberately simplified models.</p>
+        <p class="hint">Colors use the base terrain’s fixed height range. Gray inspection uses the same range; black and white values may saturate after erosion.</p>
+        <pre id="operation-log">No erosion applied.</pre>
+        <div class="button-row"><button id="export-json" type="button" disabled>Export heightmap JSON</button><button id="export-png" type="button" disabled>Export grayscale PNG</button></div>
+        <p class="hint">PNG is an 8-bit inspection image. JSON retains Float32 heights, dimensions, settings and operation parameters.</p>
+      </details>
+    </aside>
+    <main id="workspace">
+      <p id="render-notice" class="notice" hidden></p>
+      <div class="viewport-toolbar">
+        <label>View <select id="view-mode"><option value="terrain">3D · height colors</option><option value="neutral">3D · neutral</option><option value="grayscale">3D · grayscale</option><option value="heightmap">2D · heightmap</option><option value="difference">3D · erosion difference</option></select></label>
+        <label class="checkbox"><input id="wireframe" type="checkbox"> Wireframe</label>
+        <label class="checkbox"><input id="show-base" type="checkbox"> Show base</label>
+        <button id="frame-view" type="button">Frame terrain</button>
+      </div>
+      <div id="viewport">
+        <div id="map-view" hidden><canvas id="heightmap-canvas" aria-label="Grayscale heightmap"></canvas></div>
+        <div id="viewport-label"><strong id="current-label">Initializing…</strong><span id="legend"></span></div>
+        <p id="interaction-hint">Drag: orbit · Wheel / pinch: zoom · Right-drag / two fingers: pan</p>
+      </div>
+      <div id="statistics" aria-label="Terrain statistics">No terrain generated.</div>
+      <div id="status-area">
+        <div class="status-line"><span id="status" role="status" aria-live="polite">Loading application…</span><button id="cancel" type="button" hidden>Cancel</button></div>
+        <progress id="progress" max="1" value="0" hidden aria-label="Operation progress"></progress>
+      </div>
+    </main>
+  </div>
+  <noscript>This terrain laboratory requires JavaScript.</noscript>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
